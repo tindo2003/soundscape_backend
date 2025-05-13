@@ -121,8 +121,8 @@ def chart(request, take=10):
 
 
 @api_view(["GET"])
-@cache_page(60 * 15)
-@vary_on_cookie
+# @cache_page(60 * 15)
+# @vary_on_cookie
 def recs_using_association_rules(request, user_id, take=10):
     """
     Queries the database for events that are
@@ -160,8 +160,8 @@ def recs_using_association_rules(request, user_id, take=10):
 
 
 @api_view(["GET"])
-@cache_page(60 * 15)
-@vary_on_cookie
+# @cache_page(60 * 15)
+# @vary_on_cookie
 def recs_cb(request, user_id, num=10):
 
     sorted_items = ContentBasedRecs().recommend_items(user_id, num)
@@ -313,8 +313,8 @@ def search_concerts(request):
 
 
 @api_view(["GET"])
-@cache_page(60 * 15)
-@vary_on_cookie
+# @cache_page(60 * 15)
+# @vary_on_cookie
 def recs_events(request, num=10):
     session_cookie = request.COOKIES.get("session")
     if not session_cookie:
