@@ -37,3 +37,4 @@ pillow
 boto3
 pyjwt
 python-decouple
+gunicorn
