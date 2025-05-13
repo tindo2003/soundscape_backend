@@ -273,7 +273,7 @@ def verify_spotify_user(request):
         refresh_token = user.refresh_token
     except User.DoesNotExist:
         return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
-
+    print('access token', access_token)
     # Initialize Tekore Spotify client
     try:
         spotify = tk.Spotify(access_token)
