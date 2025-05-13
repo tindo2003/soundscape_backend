@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "channels",
 ]
 
+SESSION_COOKIE_DOMAIN = '.up.railway.app'
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
