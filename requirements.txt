@@ -1,0 +1,39 @@
+# tekoreannotated-types==0.7.0
+# anyio==4.6.0
+# certifi==2024.8.30
+# exceptiongroup==1.2.2
+# h11==0.14.0
+# httpcore==1.0.6
+# httpx==0.27.2
+# idna==3.10
+# pydantic==2.9.2
+# pydantic_core==2.23.4
+# sniffio==1.3.1
+tekore==5.5.1
+typing_extensions==4.12.2
+Django
+djangorestframework
+markdown
+django-filter
+requests
+mysqlclient
+python-dotenv
+django-cors-headers
+google-auth
+jwt
+bcrypt
+geolib
+
+jupyter
+numpy
+pandas
+python-dotenv
+seaborn
+scikit-learn
+spotipy
+tqdm
+wordcloud
+pillow
+boto3
+pyjwt
+python-decouple
