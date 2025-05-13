@@ -46,6 +46,7 @@ from .views import (
     create_chat,
     get_chat_messages,
     mark_messages_read,
+    verify_session,
 )
 
 app_name = "users"
@@ -104,4 +105,7 @@ urlpatterns = [
     path('chats/create/', create_chat, name='create_chat'),
     path('chats/<int:chat_id>/messages/', get_chat_messages, name='get_chat_messages'),
     path('chats/<int:chat_id>/mark-read/', mark_messages_read, name='mark_messages_read'),
+
+    # Session endpoints
+    path('verify-session/', verify_session, name='verify-session'),
 ]

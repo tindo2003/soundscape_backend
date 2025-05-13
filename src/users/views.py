@@ -2165,3 +2165,24 @@ def mark_messages_read(request, chat_id):
             {'error': 'Chat not found'},
             status=status.HTTP_404_NOT_FOUND
         )
+
+def verify_session(request):
+    session_cookie = request.COOKIES.get("session")
+    if not session_cookie:
+        return Response(
+            {'error': 'Session cookie not found'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
+    try:
+        session_payload = decrypt_session_token(session_cookie)
+        if not session_payload:
+            return Response(
+                {'error': 'Invalid session cookie'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        return session_payload
+    except Exception as e:
+        return Response(
+            {'error': str(e)},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
