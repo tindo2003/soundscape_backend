@@ -42,3 +42,4 @@ celery
 redis
 django_celery_beat
 channels
+django_redis
