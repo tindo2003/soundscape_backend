@@ -1159,10 +1159,12 @@ def signin(request):
     response.set_cookie(
         key="session",
         value=token,
-        httponly=True,  # Keep True for session token security unless JS access is essential
-        secure=False,   # <<< Allows cookie over HTTP
-        samesite='Lax', # <<< Behaves well with HTTP, allows same-site and top-level cross-site
+        httponly=True,
+        secure=True,      # MUST be True for SameSite='None'
+        samesite='None',  # Allows cross-site cookie sending
         expires=expires_at,
+        path='/',
+        # domain=".backenddomain.com" # Optional, often fine without if backend is api.backenddomain.com
     )
 
     return response
@@ -2170,6 +2172,7 @@ def mark_messages_read(request, chat_id):
 def verify_session(request):
     session_cookie = request.COOKIES.get("session")
     if not session_cookie:
+        print("Session cookie not found")
         return Response(
             {'error': 'Session cookie not found'},
             status=status.HTTP_401_UNAUTHORIZED
@@ -2177,12 +2180,14 @@ def verify_session(request):
     try:
         session_payload = decrypt_session_token(session_cookie)
         if not session_payload:
+            print("Invalid session cookie")
             return Response(
                 {'error': 'Invalid session cookie'},
                 status=status.HTTP_401_UNAUTHORIZED
             )
         return Response({'verify_session': 'success'}, status=status.HTTP_200_OK)
     except Exception as e:
+        print(f"Error verifying session: {e}")
         return Response(
             {'error': str(e)},
             status=status.HTTP_401_UNAUTHORIZED
