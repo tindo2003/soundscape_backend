@@ -2181,7 +2181,7 @@ def verify_session(request):
                 {'error': 'Invalid session cookie'},
                 status=status.HTTP_401_UNAUTHORIZED
             )
-        return Response(session_payload.model_dump(), status=status.HTTP_200_OK)
+        return Response({'verify_session': 'success'}, status=status.HTTP_200_OK)
     except Exception as e:
         return Response(
             {'error': str(e)},
