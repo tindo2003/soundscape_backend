@@ -20,7 +20,7 @@ mysqlclient
 python-dotenv
 django-cors-headers
 google-auth
-jwt
+# jwt
 bcrypt
 geolib
 
