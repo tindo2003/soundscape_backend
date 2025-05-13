@@ -40,3 +40,4 @@ python-decouple
 gunicorn
 celery 
 redis
+django_celery_beat

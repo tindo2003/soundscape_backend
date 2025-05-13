@@ -113,11 +113,11 @@ WSGI_APPLICATION = "soundscape.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv("db_name"),
-        "USER": os.getenv("db_user"),
-        "PASSWORD": os.getenv("db_pass"),
-        "HOST": os.getenv("db_host"),
-        "PORT": os.getenv("db_port"),
+        "NAME": config("DJANGO_DB_NAME", cast=str),
+        "USER": config("DJANGO_DB_USER", cast=str),
+        "PASSWORD": config("DJANGO_DB_PASS", cast=str),
+        "HOST": config("DJANGO_DB_HOST", cast=str),
+        "PORT": config("DJANGO_DB_PORT", cast=int),
     }
 }
 # DATABASES = {
