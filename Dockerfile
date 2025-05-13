@@ -20,6 +20,8 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update && apt-get install -y \
     # for mysql
     default-libmysqlclient-dev \
+    # for pkg-config
+    pkg-config \
     # for Pillow
     libjpeg-dev \
     # for CairoSVG
