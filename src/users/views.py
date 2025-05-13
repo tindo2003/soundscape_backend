@@ -1159,11 +1159,11 @@ def signin(request):
     response.set_cookie(
         key="session",
         value=token,
-        httponly=True,
-        secure=True,
-        samesite='None',
+        httponly=True,  # Keep True for session token security unless JS access is essential
+        secure=False,   # <<< Allows cookie over HTTP
+        samesite='Lax', # <<< Behaves well with HTTP, allows same-site and top-level cross-site
         expires=expires_at,
-    )   
+    )
 
     return response
 
