@@ -18,8 +18,8 @@ ENV PYTHONUNBUFFERED 1
 
 # Install os dependencies for our mini vm
 RUN apt-get update && apt-get install -y \
-    # for postgres
-    libpq-dev \
+    # for mysql
+    default-libmysqlclient-dev \
     # for Pillow
     libjpeg-dev \
     # for CairoSVG
