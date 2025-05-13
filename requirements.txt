@@ -16,7 +16,7 @@ djangorestframework
 markdown
 django-filter
 requests
-mysqlclient
+# mysqlclient
 python-dotenv
 django-cors-headers
 google-auth
