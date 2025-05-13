@@ -1164,7 +1164,7 @@ def signin(request):
         samesite='None',  # Allows cross-site cookie sending
         expires=expires_at,
         path='/',
-        # domain=".backenddomain.com" # Optional, often fine without if backend is api.backenddomain.com
+        domain=".up.railway.app" 
     )
 
     return response
