@@ -2166,6 +2166,7 @@ def mark_messages_read(request, chat_id):
             status=status.HTTP_404_NOT_FOUND
         )
 
+@api_view(['GET'])
 def verify_session(request):
     session_cookie = request.COOKIES.get("session")
     if not session_cookie:
